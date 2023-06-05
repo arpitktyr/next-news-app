@@ -1,6 +1,6 @@
-import Head from 'next/head'
-import Link from "next/link"
-import Layout from "../../components/Layout"
+import Head from "next/head";
+import Link from "next/link";
+import Layout from "../../components/Layout";
 import { handler } from "../api";
 
 function Sections({ results }) {
@@ -12,26 +12,35 @@ function Sections({ results }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-          <h1>Sections</h1>
-          <ul>
-            {results?.map(result => <Link href={`sections/${result.section}`}><a>{result.section}</a></Link>)}
-          </ul>
-        </main>
-    </Layout>);
+        <h1>Sections</h1>
+        <ul>
+          {results?.map((result, i) => (
+            <>
+              {i + 1} -{" "}
+              <Link href={`sections/${result.section}`}>
+                <a>{result.section}</a>
+              </Link>
+              <br />
+            </>
+          ))}
+        </ul>
+      </main>
+    </Layout>
+  );
 }
 
-
-// to register for a new New York Times API KEY, visit : 
-const API_KEY = "9hUvOqGGdnCBvGKg4EB3L7mGdBC8hKKJ"
+// to register for a new New York Times API KEY, visit :
+const API_KEY = "9hUvOqGGdnCBvGKg4EB3L7mGdBC8hKKJ";
 // This also gets called at build time
 export async function getStaticProps() {
-
   // Pass post data to the page via props
   return {
     props: {
-      results : await handler(`https://api.nytimes.com/svc/news/v3/content/section-list.json?api-key=${API_KEY}`), 
-    }
-  }
+      results: await handler(
+        `https://api.nytimes.com/svc/news/v3/content/section-list.json?api-key=${API_KEY}`
+      ),
+    },
+  };
 }
 
 export default Sections;
