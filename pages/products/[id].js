@@ -75,7 +75,7 @@ export async function getStaticPaths() {
   const productResponse = await res.json();
   const products = productResponse.products ?? [];
   return {
-    paths: products.map((item) => {
+    paths: products?.map((item) => {
       return { params: { id: item.id.toString() } };
     }),
     fallback: false,
