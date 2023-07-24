@@ -5,7 +5,7 @@ import Link from "next/link";
 import Layout from "../../components/Layout";
 
 const Products = ({ products }) => {
-  console.log(products);
+  //console.log(products);
   return (
     <Layout>
       <Head>

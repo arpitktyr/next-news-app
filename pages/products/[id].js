@@ -4,7 +4,7 @@ import Head from "next/head";
 import Image from "next/image";
 
 const Product = ({ result, title }) => {
-  console.log(result, title);
+  //console.log(result, title);
   return (
     <Layout>
       <Head>

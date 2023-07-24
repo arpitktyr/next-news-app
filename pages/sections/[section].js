@@ -49,6 +49,16 @@ export async function getStaticProps({ params }) {
   const results = await handler(
     `https://api.nytimes.com/svc/news/v3/content/nyt/${params.section}.json?api-key=${API_KEY}`
   );
+
+  if (!Array.isArray(results)) {
+    return {
+      props: {
+        results: null,
+        title: params.section,
+      },
+    };
+  }
+
   return {
     props: {
       results,
