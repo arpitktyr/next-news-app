@@ -12,10 +12,10 @@ function Posts({ results, title }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <h1>{title}</h1>
+        <h1 className="main-heading">{title}</h1>
         <ul>
           {results?.map((result) => (
-            <li>
+            <li key={result.title} className="news-card">
               <a href={result.url} rel="noreferrer nofollower" target="_blank">
                 {result.title}
               </a>

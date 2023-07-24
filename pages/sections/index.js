@@ -12,15 +12,13 @@ function Sections({ results }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <h1>Sections</h1>
+        <h1 className="main-heading">Sections</h1>
         <ul>
           {results?.map((result, i) => (
             <>
-              {i + 1} -{" "}
               <Link href={`sections/${result.section}`}>
-                <a>{result.section}</a>
+                <a className="section-btn">{result.section}</a>
               </Link>
-              <br />
             </>
           ))}
         </ul>
